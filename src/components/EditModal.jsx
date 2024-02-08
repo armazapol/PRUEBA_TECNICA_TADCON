@@ -41,7 +41,7 @@ function EditModal({ showEditModal, toogleShowModal, selectedUsers, editUser }) 
               />
             </Form.Group>
             <Form.Group className="mb-3" >
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Genero</Form.Label>
               <Form.Select
                 onChange={(e) => handleChange(e)}
                 name="gender"
