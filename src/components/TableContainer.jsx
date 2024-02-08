@@ -95,14 +95,17 @@ const TableContainer = () => {
   };
 
   const deleteUser = () => {
-    const filterData = dataTable.filter((row) => {
-      return !selectedUsers.some((user) => {
-        return row.id === user.id;
+    if (selectedUsers.length === 0)
+      return toast.error("Seleccione al menos un usuario");
+    else {
+      const filterData = dataTable.filter((row) => {
+        return !selectedUsers.some((user) => {
+          return row.id === user.id;
+        });
       });
-    });
-
-    setDataTable(filterData);
-    return toast.success("Usuarios eliminados correctamente");
+      setDataTable(filterData);
+      return toast.success("Usuarios eliminados correctamente");
+    }
   };
 
   const editUser = (user) => {
