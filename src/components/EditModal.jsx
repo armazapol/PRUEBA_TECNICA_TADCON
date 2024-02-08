@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import {nationalities} from './../data'
+import toast, { Toaster } from "react-hot-toast";
 
 function EditModal({ showEditModal, toogleShowModal, selectedUsers, editUser }) {
   const [form, setForm] = useState(selectedUsers[0]);
@@ -17,6 +18,7 @@ function EditModal({ showEditModal, toogleShowModal, selectedUsers, editUser }) 
   };
 
   const handleEditUser = () => {
+    if(form.name.trim() ==='' || form.cell.trim() ==='' || form.email.trim() ==='') return toast.error('No puede dejar campos vacios')
     editUser(form)
   }
   
